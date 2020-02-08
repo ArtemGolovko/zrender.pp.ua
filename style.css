@@ -1,0 +1,16 @@
+a:hover {
+	cursor: pointer;
+}
+html, body {
+	background: #f7f7f7;
+}
+
+code {
+	display:flex;
+	background-color: #ebebeb;
+	border: 2px solid rgba(0,0,0,0.15);
+	border-radius: 7px 7px 7px 7px;
+}
+img {
+	border: 2px solid rgba(0,0,0,0.15);
+}
