@@ -29,13 +29,13 @@
             <a class="nav-link" href="#">Forum <span class="sr-only">(current)</span></a>
           </li>
     
-    	  <li class="nav-item">
+    	    <li class="nav-item">
             <a class="nav-link" href="<?php echo HTML_TEKA . '/log-in.php' ?>">Log in <span class="sr-only">(current)</span></a>
           </li>
-    	  <li class="nav-item">
+    	    <li class="nav-item">
             <a class="nav-link" href="<?php echo HTML_TEKA . '/sign-up.php' ?>">Sign up <span class="sr-only">(current)</span></a>
           </li>
-    	  <li class="nav-item">
+    	    <li class="nav-item">
             <a class="nav-link" href="<?php echo HTML_TEKA . '/about.php' ?>">About <span class="sr-only">(current)</span></a>
           </li>
         </ul>
