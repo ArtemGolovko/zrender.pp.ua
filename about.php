@@ -45,11 +45,6 @@ require( TEKA . '/body-header.php');
                 highlight_string(file_get_contents(TEKA . '/body-header.php'));
                 ?>
                 <br/>
-                <p class="text-center">end.php</p>
-                <?php
-                highlight_string(file_get_contents(TEKA . '/end.php'));
-                ?>
-                <br/>
                 <p class="text-center">about.php</p>
                 <?php
                 highlight_string(file_get_contents(TEKA . '/about.php'));
