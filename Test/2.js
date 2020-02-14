@@ -4,7 +4,7 @@ $(document).ready(function () {
     elemA.attr("href", link.slice(0, link.length - 5) + "2.html#")
     elemA.text(link.slice(0, link.length - 5) + "2.html#");
     var errorHaleder = function () {
-        throw new Error("Error");
+        alert("Error");
     };
     var links = ["", "", ""];
     var vals = ["", "", ""];
@@ -12,26 +12,30 @@ $(document).ready(function () {
         var name = nameArg;
         var email = emailArg;
         var pass = passArg;
-        var etrue = [false, false, false, false, [false, 0]];
+        var etrue = [false, false, false, false, false, [false, 0, 0]];
         if (email.length > 3 && pass.length > 3 && name.length > 3) {
             let eArr = Array.from(email);
             eArr.forEach(elem => {
-              if (elem != "@" && !etrue[4][0]) {
+              if (elem != "@" && !etrue[5][0]) {
                 etrue[0] = true;
-              } else if (elem === "@" && !etrue[4][0]) {
+              } else if (elem === "@" && !etrue[5][0]) {
                 etrue[1] = true;
-                etrue[4][0] = true;
-                etrue[4][1] = eArr.indexOf(elem) + 1;
-              } else if (elem != "@" && etrue[4][0]) {
+                etrue[5][0] = true;
+                etrue[5][1] = eArr.indexOf(elem) + 1;
+              } else if (elem != "@" && etrue[5][0]) {
                 etrue[2] = true;
-                if(etrue[4][1] != 0 && elem === "." && (etrue[4][1] + 1 < eArr.indexOf(elem) + 1)){
+                if(etrue[5][1] != 0 && elem === "." && (etrue[5][1] + 1 < eArr.indexOf(elem) + 1)){
                   etrue[3] = true;
+                  etrue[5][2] = eArr.indexOf(elem) + 1;
+                } else if(etrue[5][2] != 0 && etrue[5][2] < (eArr.indexOf(elem) + 1) && etrue[3]){
+                  etrue[4] = true;
                 }
               } else {
+                alert(elem);
                 return false;
               }
             });
-            if (etrue[0] && etrue[1] && etrue[2] && etrue[3]) {
+            if (etrue[0] && etrue[1] && etrue[2] && etrue[3] && etrue[4]) {
               return true;
             } else {
               return false;
