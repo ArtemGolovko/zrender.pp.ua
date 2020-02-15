@@ -179,36 +179,36 @@ $(".equally").click(function() {
   }
 });
 $(".delone").click(function() {
-    if(n1Was === "now"){
-      if(comaWas1 && num1[num1.length - 1] === "."){
-        num1 = num1.slice(0, num1.length - 1);
-        comaWas1 = false;
-      }else{
-        num1 = num1.slice(0, num1.length - 1);
-      }
-      if(num1.length === 0){
-        first = true;
-      }
-    } else  if(oWas || num2.length === 0){
-      operator = "";
-      oWas = false;
-      n1Was = "now";
-      n2Was = false;
-      first2 = false;
-    } else if(n2Was === "now" && num2.length != 0){
-      if(comaWas2 && num2[num2.length - 1] === "."){
-        num2 = num2.slice(0, num2.length - 1);
-        comaWas2 = false;
-      }else{
-        num2 = num2.slice(0, num2.length - 1);
-      }
-      if(num2.length === 0){
-        first2 = true;
-      }
+  if(n1Was === "now"){
+    if(comaWas1 && num1[num1.length - 1] === "."){
+      num1 = num1.slice(0, num1.length - 1);
+      comaWas1 = false;
+    }else{
+      num1 = num1.slice(0, num1.length - 1);
     }
-    if(out.get().length === 1){
-      out.clear();
-    } else {
-      out.redit(out.get().slice(0, out.get().length - 1));
+    if(num1.length === 0){
+      first = true;
     }
-  });
+  } else  if(oWas || num2.length === 0){
+    operator = "";
+    oWas = false;
+    n1Was = "now";
+    n2Was = false;
+    first2 = false;
+  } else if(n2Was === "now" && num2.length != 0){
+    if(comaWas2 && num2[num2.length - 1] === "."){
+      num2 = num2.slice(0, num2.length - 1);
+      comaWas2 = false;
+    }else{
+      num2 = num2.slice(0, num2.length - 1);
+    }
+    if(num2.length === 0){
+      first2 = true;
+    }
+  }
+  if(out.get().length === 1){
+    out.clear();
+  } else {
+    out.redit(out.get().slice(0, out.get().length - 1));
+  }
+});
