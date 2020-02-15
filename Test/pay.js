@@ -6,6 +6,8 @@ $(document).ready(function() {
     $("#check").click(() => {
       let email = $("#email").val();
       let pass = $("#pass").val();
+      let radio = $('input[type="radio"]:checked').val();
+      alert(radio);
       if (email.length != 0 && pass.length != 0) {
         let eArr = Array.from(email);
         let etrue = [false, false, false, false];
@@ -26,7 +28,7 @@ $(document).ready(function() {
           alert(email + " " + pass);
           $("#show").hide();
         } else {
-          alert("Wrong data!!!");
+          throw new Error("Wrong data!!!");
         }
       }
     });
