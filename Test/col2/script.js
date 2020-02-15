@@ -51,6 +51,7 @@ $(".number").click(function(){
     let n = $(this).attr("id");
     if (n1Was === "now") {
       num1 += n;
+      
     } else if (n2Was === "now") {
       num2 += n;
     }
@@ -122,7 +123,11 @@ $(".operator").click(function(){
       out.add(strOperators[o]);
     } else if (oWas){
       operator = o;
-      out.redit(num1 + strOperators[o] + num2);
+      if(num1.length === 0){
+        out.redit("0" + strOperators[o] + num2)
+      }else{
+        out.redit(num1 + strOperators[o] + num2);
+      }
     }
 });
 $(".equally").click(function() {
@@ -164,7 +169,7 @@ $(".equally").click(function() {
     zero = false;
   } else {
     out.redit(res);
-    num1 = "";
+    num1 = "0";
     operator = "";
     num2 = "";
     n1Was = "now";
