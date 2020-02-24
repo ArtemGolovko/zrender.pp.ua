@@ -14,3 +14,9 @@ code {
 img {
 	border: 2px solid rgba(0,0,0,0.15);
 }
+/* {
+	font-family: monospace;
+}*/
+canvas {
+	border: solid 1px #000;
+}
