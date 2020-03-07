@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ul li a</title>
+    <style>
+        li {
+            /*line-height: 35px;*/
+            height: 45px;
+            background-color: darkgray;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        $("#li").click(function (e) { 
+            e.preventDefault();
+            var link = $(this).find("a").attr("href");
+            alert(link);
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li id="li"><a href="">Lorem ipsum dolor sit amet consectetur.</a></li>
+        <li id="li"><a href="">Lorem ipsum dolor sit amet consectetur.</a></li>
+        <li id="li"><a href="">Lorem ipsum dolor sit amet consectetur.</a></li>
+        <li id="li"><a href="">Lorem ipsum dolor sit amet consectetur.</a></li>
+        <li id="li"><a href="">Lorem ipsum dolor sit amet consectetur.</a></li>
+    </ul>
+    <ul>
+        <a href="">
+            <li>Lorem ipsum dolor sit amet consectetur.</li>
+        </a>
+        <a href="">
+            <li>Lorem ipsum dolor sit amet consectetur.</li>
+        </a>
+        <a href="">
+            <li>Lorem ipsum dolor sit amet consectetur.</li>
+        </a>
+        <a href="">
+            <li>Lorem ipsum dolor sit amet consectetur.</li>
+        </a>
+    </ul>
+</body>
+</html>
