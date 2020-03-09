@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?=$uri?></title>
+    <title>~<?=$uri?></title>
 </head>
 <body>
     <?php if(strripos($uri, ".htaccess") !== false): ?>
@@ -15,6 +15,7 @@
         <h1><?php
             $dirs = explode("/", substr($urli, 0, strlen($urli) - 1));
             $path = "/";
+            echo '<a href="'.$path.'">~</a>';
             foreach($dirs as $dir){
                 $path .= $dir."/";
                 echo '/<a href="'.$path.'">'.$dir.'</a>';
