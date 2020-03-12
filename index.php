@@ -1,7 +1,4 @@
 <?php
-require( dirname( __FILE__ ) . '/loader.php');
-require( TEKA . '/header.php');
-require( TEKA . '/body-header.php');
-?>
-    </body>
-</html>
+
+ini_set('display_errors', 1);
+require_once 'app/bootstrap.php';
