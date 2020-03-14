@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tiny.cloud/1/qchczas9416wvzdylwj28yi7pni19ct013xq7vlf0di7g6bi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+</head>
+<body>
+  <form action="action.php" method="post">
+    <textarea name="rte">
+      Welcome to TinyMCE!
+    </textarea>
+    <input type="submit" value="send">
+  </form>
+  <br><div id="div"></div>
+  
+
+  </div>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name'
+    });
+  </script>
+  <script>
+    $('form').submit(function(e){
+      e.preventDefault();
+      var data = new FormData();
+      data.set("rte", tinymce.activeEditor.getContent());
+      $.ajax({
+        url: $(this).attr("action"),
+        type: $(this).attr("method"),
+        data: data,
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (result) {
+          //alert(result);
+          $("#div").html(result);
+        },
+        error: function () {
+          alert("error");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
