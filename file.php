@@ -7,25 +7,36 @@ $host = "https://".$_SERVER['HTTP_HOST'];
 
 $urli = substr($uri, 1);
 
-function getImage ($file)
+$keys = Array(
+    "html" => "29515",
+    "css" => "Css-File-512",
+    "zip" => "126-512",
+    "yml" => "377190",
+    "ico" => "ico-512",
+    "java" => "Java-File-512",
+    "json" => "json-512",
+    "mp4" => "movie-video-file-clip-youtube-512",
+    "php" => "php-512",
+    "jar" => "unnamed(1)",
+    "js" => "unnamed",
+    "ini" => "v-17-512",
+    "png" => "Very-Basic-Image-File-icon",
+    "jpg" => "Very-Basic-Image-File-icon",
+    "xml" => "xml-512"
+);
+
+function getImage ($file, $special = false)
 {
-    $keys = Array(
-        "html" => "29515",
-        "css" => "Css-File-512",
-        "zip" => "126-512",
-        "yml" => "377190",
-        "ico" => "ico-512",
-        "java" => "Java-File-512",
-        "json" => "json-512",
-        "mp4" => "movie-video-file-clip-youtube-512",
-        "php" => "php-512",
-        "jar" => "unnamed(1)",
-        "js" => "unnamed",
-        "ini" => "v-17-512",
-        "png" => "Very-Basic-Image-File-icon",
-        "jpg" => "Very-Basic-Image-File-icon",
-        "xml" => "xml-512"
-    );
+    global $keys, $host;
+    if ($special) {
+        if($file == "dir"){
+            $file = '<img src="'.$host.'/src/images/icons/closed_folder-512.png">';
+        }
+        if($file == "back"){
+            $file = '<img src="'.$host.'/src/images/icons/Go-back-icon.png">';
+        }
+        return $file;
+    }
     $file = explode(".", $file);
     $file = $file[count($file) - 1];
     if(array_key_exists($file, $keys)){
@@ -33,21 +44,22 @@ function getImage ($file)
     } else {
         $file = "28-512";
     }
-    return $file;
+    return '<img src="'.$host.'/src/images/icons/'.$file.'.png">';
 }
 
-function getFiles(array $files, $uri, $host, $urli)
+function getFiles(array $files)
 {   
+    global $uri, $host, $urli;
     foreach ($files as $file) {
         if($file !== "."){
             if(is_dir($urli.$file) && $file != ".."){
-               echo '<p><img src="'.$host.'/src/images/icons/closed_folder-512.png"><a href="'.$host.$uri.$file.'">'.$file.'</a></p>'."\n";
+               echo '<p>'.getImage("dir", true).'<a href="'.$host.$uri.$file.'">'.$file.'</a></p>'."\n";
             }
             if (is_dir($urli.$file) && $file == "..") {
-                echo '<p><a href="'.$host.$uri.$file.'"><img src="'.$host.'/src/images/icons/Go-back-icon.png"><a/></p>';
+                echo '<p><a href="'.$host.$uri.$file.'">'.getImage("back", true).'<a/></p>';
             }
             if(is_file($urli.$file)) {
-                echo '<p><img src="'.$host.'/src/images/icons/'.getImage($file).'.png"><a href="'.$host.$uri.$file.'">'.$file.'</a></p>'."\n";
+                echo '<p>'.getImage($file).'<a href="'.$host.$uri.$file.'">'.$file.'</a></p>'."\n";
             }
         }
     }
@@ -83,7 +95,10 @@ function getTitle ($urli)
         <h1>403 FORBIDEN</h1>
     <?php else: ?>
         <h1><?php getTitle($urli); ?></h1>
-	    <?php getFiles(scandir($urli), $uri, $host, $urli); ?>
+        <?php getFiles(scandir($urli)); 
+        /*echo getImage("back", true);
+        echo getImage("dir", true);*/
+        ?>
     <?php endif; ?>
 </body>
 </html>
