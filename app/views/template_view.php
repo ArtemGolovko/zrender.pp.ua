@@ -8,7 +8,26 @@
     <script src="/src/js/jquery-3.4.1.min.js"></script>
     <script src="/scr/js/popper.min.js"></script>
     <script src="/src/js/bootstrap.min.js"></script>
-    <script src="/src/js/ajax-update.js"></script>
+    <!-- <script src="/src/js/ajax-update.js"></script> -->
+    <script>
+$(document).ready(function(){
+	$("a").click(function (e) {
+    		//e.preventdefault();
+    		var url = $(this).attr("href");
+    		$.ajax({
+        		url: url,
+        		type: "post",
+        		success: function (result) {
+            			var doc = new DOMParser().parseFromString(result, 'text/html');
+            			document.head.innerHTML = doc.head.innerHTML;
+            			document.body.innerHTML = doc.body.innerHTML;
+       			},
+        		error: () => alert("error")
+    		});
+   		return false;
+	});
+});
+    </script>
 </head>
 <body>
     <div class="row d-flex justify-content-md-center">
