@@ -53,13 +53,13 @@ function getFiles(array $files)
     foreach ($files as $file) {
         if($file !== "."){
             if(is_dir($urli.$file) && $file != ".."){
-               echo '<p>'.getImage("dir", true).'<a href="'.$host.$uri.$file.'">'.$file.'</a></p>'."\n";
+               echo '<p>'.getImage("dir", true).'<a href="'.$host.$uri.$file.'">'.$file.'</a></p><br />'."\n";
             }
             if (is_dir($urli.$file) && $file == "..") {
-                echo '<p><a href="'.$host.$uri.$file.'">'.getImage("back", true).'<a/></p>';
+                echo '<p id="back"><a href="'.$host.$uri.$file.'">'.getImage("back", true).'<a/></p><br />';
             }
             if(is_file($urli.$file)) {
-                echo '<p>'.getImage($file).'<a href="'.$host.$uri.$file.'">'.$file.'</a></p>'."\n";
+                echo '<p>'.getImage($file).'<a href="'.$host.$uri.$file.'">'.$file.'</a></p><br />'."\n";
             }
         }
     }
@@ -86,6 +86,37 @@ function getTitle ($urli)
     <style>
         img {
             width: 50px;
+            height: 50px;
+            margin: 1px;
+        }
+        p {
+            font-size: 50px;
+            border: solid 1px gray;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 2.5px;
+            margin-bottom: 2.5px;
+            background-color: #7a7a7a;
+        }
+        p a {
+            vertical-align: top;
+            text-decoration: none;
+        }
+        h1 {
+            font-size: 100px;
+            margin-top: 10px;
+            margin-bottom: 7.5px;
+        }
+        h1 a {
+            color: lightskyblue;
+            text-decoration: none;
+        }
+        #back {
+            border: none !important;
+            background: none !important;
+        }
+        #back img {
+            width: 100px;
             height: 50px;
         }
     </style>
