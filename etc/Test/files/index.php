@@ -11,10 +11,11 @@
     if(isset($_POST["submit"])){
         if($_POST["form"] == "addfile")
         {
-            $data = file_get_contents($_FILES['file']["tmp_name"], true);
+            /*$data = file_get_contents($_FILES['file']["tmp_name"], true);
             $file = fopen('./files/'.$_FILES['file']["name"], "w+");
             fwrite($file, $data);
-            fclose($file);
+            fclose($file);*/
+            rename($_FILES['file']["tmp_name"], "./files/".$_FILES['file']["name"]);
         }
         if($_POST['form'] == "delfile")
         {
