@@ -2,7 +2,7 @@
 namespace test;
 class Useme  
 {
-    __construct() {
+    function __construct() {
         echo "ndfnd";
     }
 }
