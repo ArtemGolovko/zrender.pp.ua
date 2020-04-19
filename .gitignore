@@ -1,3 +1,7 @@
-/.well-known/*
+.well-known/*
 
-/webstat/*
+webstat/*
+
+application/config/db.php
+
+test/db/*
