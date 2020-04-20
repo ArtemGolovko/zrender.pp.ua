@@ -5,5 +5,3 @@ webstat/*
 application/config/db.php
 
 test/db/*
-
-test/*

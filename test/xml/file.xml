@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<routes>
-    <route path="" controller="main" action="index" />
-    <route path="login" controller="account" action="login" />
-    <route path="signup" controller="account" action="signup" />
-</routes>
