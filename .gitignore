@@ -6,6 +6,6 @@ application/config/db.php
 
 test/db/*
 
-./test/
+/test/
 
-!./test/.gitkeep
+!/test/.gitkeep
