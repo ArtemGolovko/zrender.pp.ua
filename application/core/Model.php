@@ -2,14 +2,19 @@
 
 namespace application\core;
 
-use application\lib\Db;
+use application\core\Libler;
+
 
 abstract class Model {
 
 	public $db;
+
+	public $libler;
 	
 	public function __construct() {
-		$this->db = new Db;
+		$this->libler = new Libler;
+
+		$this->db = $this->libler->loadlib('Db')->instance();
 	}
 
 }
